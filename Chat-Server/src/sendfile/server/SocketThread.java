@@ -29,7 +29,7 @@ public class SocketThread implements Runnable {
         }
     }
 
-    /*   Hàm này sẽ lấy client socket trong danh sách client socket sau đó sẽ thiết lập kết nối    */
+    /* Hàm này sẽ lấy client socket trong danh sách client socket sau đó sẽ thiết lập kết nối */
     private void createConnection(String receiver, String sender, String filename) {
         try {
             main.appendMessage("[createConnection]: đang tạo kết nối chia sẻ file.");
