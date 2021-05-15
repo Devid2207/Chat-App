@@ -44,7 +44,7 @@ public class ClientThread implements Runnable{
                         while(st.hasMoreTokens()){
                             msg = msg +" "+ st.nextToken();
                         }
-                        main.appendMessage(msg, frm, Color.MAGENTA, Color.BLUE);
+                        main.appendMessage(msg, frm, Color.LIGHT_GRAY, Color.BLACK);
                         break;
                         
                     case "CMD_ONLINE":

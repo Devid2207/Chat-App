@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.HeadlessException;
 import java.awt.Image;
@@ -93,8 +94,8 @@ public class MainForm extends javax.swing.JFrame {
     */
     public void appendMyMessage(String msg, String header){
         jTextPane1.setEditable(true);
-        getMsgHeader(header, Color.ORANGE);
-        getMsgContent(msg, Color.LIGHT_GRAY);
+        getMsgHeader(header, Color.BLUE);
+        getMsgContent(msg, Color.MAGENTA);
         jTextPane1.setEditable(false);
     }
     
@@ -104,7 +105,7 @@ public class MainForm extends javax.swing.JFrame {
     public void getMsgHeader(String header, Color color){
         int len = jTextPane1.getDocument().getLength();
         jTextPane1.setCaretPosition(len);
-        jTextPane1.setCharacterAttributes(MessageStyle.styleMessageContent(color, "Impact", 13), false);
+        jTextPane1.setCharacterAttributes(MessageStyle.styleMessageContent(color, "SansSerif", 15), false);
         jTextPane1.replaceSelection(header+":");
     }
     /*
@@ -261,7 +262,6 @@ public class MainForm extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         txtpane2 = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
@@ -275,20 +275,21 @@ public class MainForm extends javax.swing.JFrame {
         LogoutMenu = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Chat client");
         setBackground(new java.awt.Color(204, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextPane1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jScrollPane1.setViewportView(jTextPane1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 11, 379, 218));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 379, 218));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 247, 298, 39));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 298, 39));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Send");
@@ -298,7 +299,7 @@ public class MainForm extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(466, 261, 63, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, 70, 40));
 
         txtpane2.setFont(new java.awt.Font("Tahoma", 1, 9)); // NOI18N
         txtpane2.setForeground(new java.awt.Color(120, 14, 3));
@@ -306,18 +307,18 @@ public class MainForm extends javax.swing.JFrame {
         txtpane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane3.setViewportView(txtpane2);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 115, 120, 171));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 120, 230));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         jLabel1.setText("Danh sách bạn bè");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 93, 120, -1));
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 120, 20));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 11, -1, -1));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/theme/default.jpg"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 300));
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sharing.png"))); // NOI18N
-        jMenu3.setText("Cài đặt");
+        jMenu3.setText("Chức năng");
         jMenu3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu3ActionPerformed(evt);
@@ -475,14 +476,18 @@ public class MainForm extends javax.swing.JFrame {
             //jLabel4.setIcon(null);
             return;
         }
-        jLabel4.setIcon(null);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/theme/default.jpg")));
         jRadioButtonMenuItem1.setSelected(false);
         jRadioButtonMenuItem2.setSelected(false);
         jRadioButtonMenuItem4.setSelected(false);
     }//GEN-LAST:event_jRadioButtonMenuItem3ActionPerformed
 
     private void jRadioButtonMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem4ActionPerformed
-        jRadioButtonMenuItem3ActionPerformed(evt);
+        jLabel4.setIcon(null);
+        jRadioButtonMenuItem1.setSelected(false);
+        jRadioButtonMenuItem2.setSelected(false);
+        jRadioButtonMenuItem3.setSelected(true);
+        jRadioButtonMenuItem4.setSelected(false);
         try {
             JFileChooser chooser = new JFileChooser();
             FileNameExtensionFilter filter = new FileNameExtensionFilter("JPEG", "jpeg", "jpg", "png", "bmp", "gif");
@@ -546,7 +551,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem LogoutMenu;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
